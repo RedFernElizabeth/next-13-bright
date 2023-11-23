@@ -1,20 +1,9 @@
 import React from 'react';
 import { Code } from 'bright';
 
-function Home() {
-  const [
-    isFirstSnippetShown,
-    setIsFirstSnippetShown,
-  ] = React.useState(false);
-  const [
-    isSecondSnippetShown,
-    setIsSecondSnippetShown,
-  ] = React.useState(false);
-  const [
-    isThirdSnippetShown,
-    setIsThirdSnippetShown,
-  ] = React.useState(false);
+import Revealable from '../components/Revealable';
 
+function Home() {
   return (
     <main>
       <h1>Introduction to Python</h1>
@@ -28,25 +17,15 @@ function Home() {
         based on the value you assign.
       </p>
 
-      {isFirstSnippetShown ? (
+      <Revealable>      
         <Code
           className="code-snippet"
           theme="dracula"
           lang="py"
         >
-          {FIRST_SNIPPET}
+          { FIRST_SNIPPET }
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsFirstSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </Revealable>
 
       <h2>
         Control Flow: Conditionals and Loops
@@ -57,25 +36,15 @@ function Home() {
         while loops.
       </p>
 
-      {isSecondSnippetShown ? (
+      <Revealable>
         <Code
-          className="code-snippet"
-          theme="dracula"
-          lang="py"
-        >
-          {SECOND_SNIPPET}
-        </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsSecondSnippetShown(true)
-            }
+            className="code-snippet"
+            theme="dracula"
+            lang="py"
           >
-            Reveal Content
-          </button>
-        </div>
-      )}
+            { SECOND_SNIPPET }
+        </Code>
+      </Revealable>
 
       <h2>Functions and Basic Data Structures</h2>
 
@@ -86,25 +55,15 @@ function Home() {
         lists and dictionaries.
       </p>
 
-      {isThirdSnippetShown ? (
+      <Revealable>        
         <Code
           className="code-snippet"
           theme="dracula"
           lang="py"
         >
-          {THIRD_SNIPPET}
+          { THIRD_SNIPPET }
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsThirdSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </Revealable>
     </main>
   );
 }
